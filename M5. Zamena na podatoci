@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace M._5_Zamena_na_podatoci
+{
+    class Program
+    {
+        static void Main(string[] args)//se vrakjat site 
+        {
+
+            //100, 10, 8, 7   50, 10, 9, 8  155, 40, 15, 20  200, 101, 1, 15 
+            List<int> parametri = new List<int>() { 200, 101, 1, 15 };
+
+            int vkupnoPari = parametri[0];
+            int prodavnicaA = parametri[1];
+            int prodavnicaR = parametri[2];
+            int prodavnicaB = parametri[3];
+
+            int proizvodiOdA;
+            int proizvodiOdB;
+
+            if ((1 <= prodavnicaB) && (prodavnicaB <= prodavnicaA) && (prodavnicaA <= vkupnoPari) && (vkupnoPari <= 200) && (1 <= prodavnicaR) && (prodavnicaR <= prodavnicaA))
+            {
+
+                proizvodiOdA = vkupnoPari / prodavnicaA;
+                // Console.WriteLine("proizvodiOdA -> " + proizvodiOdA);
+                int kusurOdA = vkupnoPari - (prodavnicaA * proizvodiOdA);
+                //Console.WriteLine("kusurOdA -> " + kusurOdA);
+                int vrateniPari = proizvodiOdA * prodavnicaR;
+                vkupnoPari = vrateniPari + kusurOdA;
+                //Console.WriteLine("vkupnoPari -> " + vkupnoPari);
+                //vkupnoPari = vkupnoPari + vrateniPari;
+                proizvodiOdB = vkupnoPari / prodavnicaB;
+                //Console.WriteLine("proizvodiOdB -> " + proizvodiOdB);
+
+                if (proizvodiOdA < proizvodiOdB)
+                {
+                    Console.WriteLine("Odgovor: DA");
+                }
+                else
+                {
+                    Console.WriteLine("Odgovor: NE");
+                }
+
+            }
+
+        }
+
+    }
+}
+

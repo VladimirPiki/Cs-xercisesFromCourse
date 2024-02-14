@@ -1,0 +1,58 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Z13.RasteckiPodstringovi
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //////////////       1     2    3
+            string subString= "abcdbafghibayz";
+            int rasteckiNizi = 0;
+            int brojac = 0;
+            bool rastecka = false;
+            for (int i = 1; i < subString.Length; i++)
+            {
+           
+
+                //int broj = str[i];
+                if (subString[i] > subString[i - 1])
+                {
+                    brojac++;
+                    //Console.WriteLine((int)subString[i] + " > " + (int)subString[i - 1]);
+                    if (subString[i] == subString.Length - 1)
+                    {
+                        rastecka = false;
+                        rasteckiNizi++;
+                        break;
+                    }
+                    rastecka= true;
+                }
+                else
+                {
+                    //Console.WriteLine((int)subString[i] + " < " + (int)subString[i - 1]);
+                    if (brojac > 1)
+                    {
+                        rastecka = false;
+                        rasteckiNizi++;
+                        brojac = 1;
+                    }
+
+                }
+       
+
+            }
+            if (rastecka)
+            {
+               rasteckiNizi++;
+                Console.WriteLine("Substringot e rastecki");
+            }
+            Console.WriteLine("Substringot sozdrzi : " + rasteckiNizi + " elementi");
+        }
+    }
+}
